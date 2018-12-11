@@ -17,4 +17,15 @@ export class CompanyEffects {
       switchMap(() => this.companyService.loadCompanies()),
       map(companies => new companyActions.LoadCompaniesSuccessAction(companies))
     );
+
+  @Effect() deleteCompanies$ = this.actions$
+    .ofType(companyActions.DELETE_COMPANIES)
+    .pipe(
+      switchMap((action: companyActions.DeleteCompaniesAction) =>
+        this.companyService.deleteCompany(action.payload)
+      ),
+      map(
+        company => new companyActions.DeleteCompaniesSuccessAction(company.id)
+      )
+    );
 }

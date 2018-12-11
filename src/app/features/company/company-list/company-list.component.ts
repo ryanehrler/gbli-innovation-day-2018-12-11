@@ -1,7 +1,8 @@
 import * as companyActions from '../../../core/ngrx/actions/company.actions';
-import { AppState } from '../../../models';
+import { AppState, Company } from '../../../models';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { State } from 'src/app/models/state';
 import { Store } from '@ngrx/store';
 
 @Component({
@@ -10,10 +11,12 @@ import { Store } from '@ngrx/store';
   styleUrls: ['./company-list.component.scss']
 })
 export class CompanyListComponent implements OnInit {
-  companies$: Observable<any>;
+  companies$: Observable<Company[]>;
 
   constructor(private store: Store<AppState>) {
-    this.companies$ = this.store.select(state => state.companies);
+    this.companies$ = this.store.select(
+      (state: State) => state.companies.companies
+    );
   }
 
   ngOnInit() {
@@ -25,6 +28,6 @@ export class CompanyListComponent implements OnInit {
   }
 
   deleteCompany(companyId: number) {
-    // this.store.dispatch(new companyActions.DeleteCompanyAction(companyId));
+    this.store.dispatch(new companyActions.DeleteCompaniesAction(companyId));
   }
 }
