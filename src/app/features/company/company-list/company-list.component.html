@@ -1,0 +1,6 @@
+<h2>
+  Companies
+  <button mat-button color="primary" class="float-right" [routerLink]="['/company/edit', 'new']">Add</button>
+</h2>
+<app-company-table [companies]="companies$ | async" (deleteCompany)="deleteCompany($event)">
+</app-company-table>

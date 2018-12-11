@@ -1,7 +1,12 @@
+import { CompanyEditComponent } from './company-edit/company-edit.component';
+import { CompanyListComponent } from './company-list/company-list.component';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: 'list', component: CompanyListComponent },
+  { path: 'edit/:id', component: CompanyEditComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
