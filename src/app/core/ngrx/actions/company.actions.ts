@@ -1,0 +1,1 @@
+export const LOAD_COMPANIES = 'LOAD_COMPANIES';
