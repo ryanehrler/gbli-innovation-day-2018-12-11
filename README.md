@@ -6,6 +6,7 @@ Goal of this project is to implement an <a href="https://ngrx.io/">NgRx Store.</
 
 ```bash
 git clone https://github.com/ryanehrler/gbli-innovation-day-2018-12-11.git
+cd gbli-innovation-day-2018-12-11
 npm install
 ng serve
 ```
